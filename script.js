@@ -1,7 +1,6 @@
+let playerText = document.getElementById('playerText');
 let boxes = Array.from(document.getElementsByClassName('box'));
 let restartBtn = document.getElementById('restartBtn');
-
-console.log(boxes);
 
 const O_TEXT = 'O';
 const X_TEXT = 'X';
@@ -18,6 +17,11 @@ function boxClicked(e) {
     if (!spaces[id]) {
         spaces[id] = currentPlayer;
         e.target.innerText = currentPlayer;
+        playerText.innerText = `${currentPlayer} Turn`;
+
+        if (playerHasWon() !== false) {
+            playerText.innerText = `${currentPlayer} Has WON!`
+        }
 
         currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT;
     }
@@ -34,5 +38,15 @@ function restart() {
 
     currentPlayer = X_TEXT;
 }
+
+const themeToggleBtn = document.querySelector('.theme-toggler');
+const container = document.querySelector('.container');
+const toggleIcon = document.querySelector('.toggle-icon');
+let isDark = true;
+themeToggleBtn.onclick = () => {
+    container.classList.toggle('dark');
+    themeToggleBtn.classList.toggle('active');
+    isDark = !isDark;
+};
 
 startGame();
