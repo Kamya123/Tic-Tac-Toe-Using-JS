@@ -11,6 +11,10 @@ body {
     background-image: linear-gradient(to bottom right, rgb(125, 157, 38), rgb(13, 80, 33));
 }
 
+:root {
+    --winning-blocks: rgb(7, 62, 7);
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -90,6 +94,14 @@ body {
     font-size: 3rem;
     color: white;
 }
+
+/* .cmplt-box.fill {
+    background-color: beige;
+}
+
+.cmplt-box.cmplt-box.fill .box {
+    border: none;
+} */
 
 .cmplt-box>div {
     border: 1px solid white;
